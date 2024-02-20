@@ -8,13 +8,13 @@ namespace ComputationalMath
 {
     public class FirstFunction : IFunction
     {
-        public double GetFunction(double x/*, double y*/)
+        public float GetFunction(float x)
         {
-            return Math.Pow(x, 2) - 20 * Math.Sin(x) - 5;
+            return (float)(Math.Pow(x, 2) - 20 * Math.Sin(x) - 5);
         }
-        public double GetDerivativeFunction(double x)
+        public float GetDerivativeFunction(float x)
         {
-            return 2 * x - 20 * Math.Cos(x);
+            return 2 * x - 20 * (float)Math.Cos(x);
         }
     }
 }

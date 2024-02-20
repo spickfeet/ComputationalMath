@@ -8,17 +8,17 @@ namespace ComputationalMath
 {
     public class HalfDivision
     {
-        double accuracy = Math.Pow(10, -15);
-        public void InitAccuracy(double ac)
+        float accuracy = (float)Math.Pow(10, -5);
+        public void InitAccuracy(float ac)
         {
             accuracy = ac;
         }
-        public double DoMethod(double a, double b, IFunction f)
+        public float DoMethod(float a, float b, IFunction f)
         {
-            double answer = 1;
+            float answer = 1;
             while (Math.Abs(a - b) > accuracy)  //пока длина заданного интервала больше точности
             {
-                double middle = (a + b) / 2;
+                float middle = (a + b) / 2;
                 if (f.GetFunction(middle) == 0)
                 {
                     answer = middle;

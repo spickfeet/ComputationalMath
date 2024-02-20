@@ -8,11 +8,11 @@ namespace ComputationalMath
 {
     public class NewtonMethod
     {
-        private double _accuracy = Math.Pow(10, -24);
-        public double FindSolution(int a, IFunction function)
+        private float _accuracy = (float)Math.Pow(10, -5);
+        public float FindSolution(int a, IFunction function)
         {
-            double x1 = a;
-            double x2;
+            float x1 = a;
+            float x2;
             while (true)
             {
                 x2 = x1 - function.GetFunction(x1) /

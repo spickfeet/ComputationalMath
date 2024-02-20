@@ -8,11 +8,11 @@ namespace ComputationalMath
 {
     public class SecondFunction : IFunction
     {
-        public double GetFunction(double x/*, double y*/)
+        public float GetFunction(float x/*, float y*/)
         {
-            return 100 * Math.Pow(x, 2) - 10000 * x - 1;
+            return 100 * (float)Math.Pow(x, 2) - 10000 * x - 1;
         }
-        public double GetDerivativeFunction(double x)
+        public float GetDerivativeFunction(float x)
         {
             return 200 * x - 10000;
         }

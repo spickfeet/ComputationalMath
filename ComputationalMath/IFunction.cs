@@ -8,7 +8,7 @@ namespace ComputationalMath
 {
     public interface IFunction
     {
-        public double GetFunction(double x);
-        public double GetDerivativeFunction(double x);
+        public float GetFunction(float x);
+        public float GetDerivativeFunction(float x);
     }
 }
