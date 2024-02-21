@@ -35,12 +35,13 @@
             labelFunction = new Label();
             label1 = new Label();
             richTextBoxIntermediateValues = new RichTextBox();
+            labelInfo = new Label();
             SuspendLayout();
             // 
             // c
             // 
             c.Font = new Font("Segoe UI", 16F);
-            c.Location = new Point(10, 190);
+            c.Location = new Point(11, 143);
             c.Margin = new Padding(3, 2, 3, 2);
             c.Name = "c";
             c.Size = new Size(349, 38);
@@ -52,10 +53,10 @@
             // richTextBoxResult
             // 
             richTextBoxResult.Font = new Font("Segoe UI", 15F);
-            richTextBoxResult.Location = new Point(365, 86);
+            richTextBoxResult.Location = new Point(366, 39);
             richTextBoxResult.Margin = new Padding(3, 2, 3, 2);
             richTextBoxResult.Name = "richTextBoxResult";
-            richTextBoxResult.Size = new Size(356, 143);
+            richTextBoxResult.Size = new Size(378, 143);
             richTextBoxResult.TabIndex = 1;
             richTextBoxResult.Text = "";
             // 
@@ -65,7 +66,7 @@
             comboBoxFunction.Font = new Font("Segoe UI", 16F);
             comboBoxFunction.FormattingEnabled = true;
             comboBoxFunction.Items.AddRange(new object[] { "f(x) = x^2 - 20sin (x) - 5", "f(x) = 100x^2 - 10000x - 1" });
-            comboBoxFunction.Location = new Point(10, 86);
+            comboBoxFunction.Location = new Point(11, 39);
             comboBoxFunction.Margin = new Padding(3, 2, 3, 2);
             comboBoxFunction.Name = "comboBoxFunction";
             comboBoxFunction.Size = new Size(350, 38);
@@ -77,7 +78,7 @@
             comboBoxMethod.Font = new Font("Segoe UI", 16F);
             comboBoxMethod.FormattingEnabled = true;
             comboBoxMethod.Items.AddRange(new object[] { "Метод простых итераций", "Метод Ньютона", "Метод половинного деления" });
-            comboBoxMethod.Location = new Point(10, 152);
+            comboBoxMethod.Location = new Point(11, 105);
             comboBoxMethod.Margin = new Padding(3, 2, 3, 2);
             comboBoxMethod.Name = "comboBoxMethod";
             comboBoxMethod.Size = new Size(350, 38);
@@ -87,7 +88,7 @@
             // 
             labelFunction.AutoSize = true;
             labelFunction.Font = new Font("Segoe UI", 16F);
-            labelFunction.Location = new Point(21, 56);
+            labelFunction.Location = new Point(22, 9);
             labelFunction.Name = "labelFunction";
             labelFunction.Size = new Size(101, 30);
             labelFunction.TabIndex = 5;
@@ -97,7 +98,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 16F);
-            label1.Location = new Point(21, 122);
+            label1.Location = new Point(22, 75);
             label1.Name = "label1";
             label1.Size = new Size(79, 30);
             label1.TabIndex = 6;
@@ -106,19 +107,31 @@
             // richTextBoxIntermediateValues
             // 
             richTextBoxIntermediateValues.Font = new Font("Segoe UI", 15F);
-            richTextBoxIntermediateValues.Location = new Point(365, 233);
+            richTextBoxIntermediateValues.Location = new Point(366, 186);
             richTextBoxIntermediateValues.Margin = new Padding(3, 2, 3, 2);
             richTextBoxIntermediateValues.Name = "richTextBoxIntermediateValues";
-            richTextBoxIntermediateValues.Size = new Size(356, 143);
+            richTextBoxIntermediateValues.Size = new Size(378, 400);
             richTextBoxIntermediateValues.TabIndex = 7;
             richTextBoxIntermediateValues.Text = "";
+            // 
+            // labelInfo
+            // 
+            labelInfo.AutoSize = true;
+            labelInfo.Font = new Font("Segoe UI", 15F);
+            labelInfo.Location = new Point(13, 189);
+            labelInfo.Name = "labelInfo";
+            labelInfo.Size = new Size(322, 56);
+            labelInfo.TabIndex = 8;
+            labelInfo.Text = "На отрезке [-5, -4] метод простых \r\nитераций не работает";
+            labelInfo.Visible = false;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(731, 450);
+            ClientSize = new Size(778, 597);
+            Controls.Add(labelInfo);
             Controls.Add(richTextBoxIntermediateValues);
             Controls.Add(label1);
             Controls.Add(labelFunction);
@@ -142,5 +155,6 @@
         private Label labelFunction;
         private Label label1;
         private RichTextBox richTextBoxIntermediateValues;
+        private Label labelInfo;
     }
 }

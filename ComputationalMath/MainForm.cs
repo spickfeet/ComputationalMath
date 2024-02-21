@@ -9,6 +9,7 @@ namespace ComputationalMath
 
         private void ButtonFind_Click(object sender, EventArgs e)
         {
+            labelInfo.Visible = false;
             richTextBoxIntermediateValues.Clear();
             IFunction f;
             List<float> intermediateValues = new List<float>();
@@ -17,6 +18,28 @@ namespace ComputationalMath
                 f = new FirstFunction();
                 switch (comboBoxMethod.SelectedIndex)
                 {
+                    case 0:
+                        SimpleIteration s = new SimpleIteration();
+
+                        labelInfo.Visible = true;
+                        s.Accuracy = (float)Math.Pow(10, -1000);
+                        float xs1 = s.DoMethod(-4, f, intermediateValues);
+                        PrintIntermediateValues(xs1, intermediateValues);
+                        intermediateValues.Clear();
+
+                        s.Accuracy = (float)Math.Pow(10, -6);
+                        float xs2 = s.DoMethod(-1, f, intermediateValues);
+                        PrintIntermediateValues(xs2, intermediateValues);
+                        intermediateValues.Clear();
+
+                        s.Accuracy = (float)Math.Pow(10, -10000);
+                        float xs3 = s.DoMethod(2, f, intermediateValues);
+                        PrintIntermediateValues(xs3, intermediateValues);
+                        intermediateValues.Clear();
+
+                        richTextBoxResult.Text = xs1.ToString() + "\n" + xs2.ToString() + "\n" + xs3.ToString();
+
+                        break;
                     case 1:
                         NewtonMethod n = new NewtonMethod();
                         float xn1 = n.FindSolution(-5, f, intermediateValues);
@@ -41,13 +64,13 @@ namespace ComputationalMath
                         HalfDivision h = new HalfDivision();
 
                         h.Accuracy = (float)Math.Pow(10, -6);
- 
+
                         float xh1 = h.DoMethod(-6, -4, f, intermediateValues);
                         PrintIntermediateValues(xh1, intermediateValues);
                         intermediateValues.Clear();
 
                         h.Accuracy = (float)Math.Pow(10, -6);
- 
+
                         float xh2 = h.DoMethod(-4, -2, f, intermediateValues);
                         PrintIntermediateValues(xh2, intermediateValues);
                         intermediateValues.Clear();
@@ -71,7 +94,17 @@ namespace ComputationalMath
                 f = new SecondFunction();
                 switch (comboBoxMethod.SelectedIndex)
                 {
-                    case 1:                   
+                    case 0:
+                        SimpleIteration s = new SimpleIteration();
+
+                        s.Accuracy = (float)Math.Pow(10, -5);
+                        float xs = s.DoMethod(99, f, intermediateValues);
+                        PrintIntermediateValues(xs, intermediateValues);
+                        intermediateValues.Clear();
+                        richTextBoxResult.Text = xs.ToString();
+                        break;
+
+                    case 1:
                         NewtonMethod n = new NewtonMethod();
                         float xn = n.FindSolution(101, f, intermediateValues);
                         PrintIntermediateValues(xn, intermediateValues);
@@ -81,12 +114,10 @@ namespace ComputationalMath
                         break;
                     case 2:
                         HalfDivision h = new HalfDivision();
-                        float xh = h.DoMethod(100, 101, f,intermediateValues);
+                        float xh = h.DoMethod(100, 101, f, intermediateValues);
                         PrintIntermediateValues(xh, intermediateValues);
                         richTextBoxResult.Text = xh.ToString();
                         break;
-
-
                 }
             }
 
@@ -100,6 +131,7 @@ namespace ComputationalMath
             {
                 richTextBoxIntermediateValues.Text += intermediateValue + "\n";
             }
+
         }
     }
 }
