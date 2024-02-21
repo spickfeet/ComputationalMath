@@ -8,15 +8,16 @@ namespace ComputationalMath
 {
     public class HalfDivision
     {
-        float accuracy = (float)Math.Pow(10, -5);
-        public void InitAccuracy(float ac)
+        private float _accuracy = (float)Math.Pow(10, -5);
+        public float Accuracy
         {
-            accuracy = ac;
+            get { return _accuracy; }
+            set { _accuracy = value; }
         }
-        public float DoMethod(float a, float b, IFunction f)
+        public float DoMethod(float a, float b, IFunction f, List<float> intermediateValue)
         {
             float answer = 1;
-            while (Math.Abs(a - b) > accuracy)  //пока длина заданного интервала больше точности
+            while (true)  //пока длина заданного интервала больше точности
             {
                 float middle = (a + b) / 2;
                 if (f.GetFunction(middle) == 0)
@@ -37,8 +38,12 @@ namespace ComputationalMath
                         a = middle;
                     }
                 }
+                if(Math.Abs(a - b) < Accuracy)
+                {
+                    return answer;
+                }
+                intermediateValue.Add(answer);
             }
-            return answer;
         }
     }
 }

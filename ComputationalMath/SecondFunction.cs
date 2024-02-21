@@ -8,7 +8,7 @@ namespace ComputationalMath
 {
     public class SecondFunction : IFunction
     {
-        public float GetFunction(float x/*, float y*/)
+        public float GetFunction(float x)
         {
             return 100 * (float)Math.Pow(x, 2) - 10000 * x - 1;
         }
